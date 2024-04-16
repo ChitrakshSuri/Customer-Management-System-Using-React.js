@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import "./Components/cus.css"; //import here (you can also import in Customer.js) or write <link rel="stylesheet" href="./Static/CSS/cus.css"> in index.html
+
+import Customer from "./Components/Customer";
+import DisplayCustomer from "./Components/DisplayCustomer";
+import ShowCountry from "./Components/ShowCountry";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Customer /> */}
+      {/* <DisplayCustomer /> */}
+      <ShowCountry/>
+    </>
   );
 }
 
