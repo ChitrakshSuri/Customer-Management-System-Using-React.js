@@ -36,9 +36,9 @@ function ShowCountry() {
   //   count++;
 
   //   countryWithElement.push(e);
-// }
-// var countryWithElement = country.map(e=>(<option value={e}>{e}</option>));
-// --> the above code can also be minimized by writing the above code in return() in place of {countryWithElement}
+  // }
+  // var countryWithElement = country.map(e=>(<option value={e}>{e}</option>));
+  // --> the above code can also be minimized by writing the above code in return() in place of {countryWithElement}
 
 
   return (
@@ -46,7 +46,7 @@ function ShowCountry() {
       <label htmlFor="">Select Country</label>
       <select name="" id="">
         {/* {countryWithElement} */}
-        {country.map(e=>(<option value={e}>{e}</option>))}
+        {country.map(e => (<option value={e}>{e}</option>))}
         {/* {country} */}
         {/* <option value="India">India</option>
         <option value="US">US</option>

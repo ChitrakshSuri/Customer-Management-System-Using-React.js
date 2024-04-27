@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import { addCustomerBLL, cusArr } from "../BLL/CustomerBLL";
+import {
+  addCustomerBLL,
+  cusArr,
+  searchCustomerBLL,
+  deleteCustomerBLL,
+} from "../BLL/CustomerBLL";
 import DisplayCustomer from "./DisplayCustomer";
 
+var curIndex = 0; // globally create a variable so that we can use anywhere
 const Customer = () => {
+  // function Customer
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -37,26 +44,60 @@ const Customer = () => {
     alert("Customer added successfully");
   }
   function search_Click(e) {
-    alert("Search Clicked");
+    // alert("Search Clicked");
+    var cus = searchCustomerBLL(id);
+    if (cus) {
+      setName(cus.name);
+      setAddress(cus.address);
+      setMobileNo(cus.mobileNo);
+      alert("Found");
+    } else {
+      alert("ID not found");
+    }
   }
   function modify_Click(e) {
     alert("Modify Clicked");
   }
   function delete_Click(e) {
-    alert("Delete Clicked");
+    // alert("Delete Clicked");
+    var msg = deleteCustomerBLL(id);
+    alert(msg);
+    // after deletion we again have to render displaycustomer.js
+    setCustomers([...cusArr]);
   }
   //
+
+  function showCustomer(index){
+    var cus = cusArr[index];
+    setId(cus.id);
+    setName(cus.name);
+    setAddress(cus.address);
+    setMobileNo(cus.mobileNo);
+  }
+
   function first_Click(e) {
-    alert("First Clicked");
+    // alert("First Clicked");
+    showCustomer(curIndex);
   }
   function previous_Click(e) {
-    alert("Previous Clicked");
+    // alert("Previous Clicked");
+    if(curIndex > 0){
+      curIndex--;
+    }
+    showCustomer(curIndex);
   }
   function next_Click(e) {
-    alert("Next Clicked");
+    // alert("Next Clicked")
+    if(curIndex < cusArr.length - 1){
+      curIndex++;
+    }
+    showCustomer(curIndex);
+;
   }
   function last_Click(e) {
-    alert("Last Clicked");
+    // alert("Last Clicked");
+    curIndex = cusArr.length - 1;
+    showCustomer(curIndex);
   }
   return (
     <>

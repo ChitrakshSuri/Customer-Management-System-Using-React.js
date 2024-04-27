@@ -9,9 +9,9 @@ import ShowCountry from "./Components/ShowCountry";
 function App() {
   return (
     <>
-      {/* <Customer /> */}
+      <Customer />
       {/* <DisplayCustomer /> */}
-      <ShowCountry/>
+      {/* <ShowCountry/> */}
     </>
   );
 }
